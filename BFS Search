@@ -1,0 +1,33 @@
+//graph-------------
+graph = {
+  '10' : ['3','11'],
+  '3' : ['6', '12'],
+  '11' : ['19'],
+  '6' : [],
+  '12' : [],
+  '19' : []
+}
+
+visited = [] 
+queue = []     
+
+def bfs(visited, graph, node): 
+  visited.append(node)
+  queue.append(node)
+
+  while queue:          
+    A = queue.pop(0) 
+    print (A, end = " ") 
+
+    for neighbour in graph[A]:
+      if neighbour not in visited:
+        visited.append(neighbour)
+        queue.append(neighbour)
+
+
+print(" Bfs Search")
+bfs(visited, graph, '10')    
+
+
+output:- 10 3 11 6 12 19 
+
